@@ -1,80 +1,217 @@
-@font-face {
-    font-family: "Cyberpunk";
-    src: 
-      url(https://assets.codepen.io/2585/Cyberpunk-Regular.svg#Cyberpunk) format('svg'),
-      url(https://assets.codepen.io/2585/Cyberpunk-Regular.ttf) format('truetype');
-    font-weight: normal; 
-    font-style: normal;
-  }
-  
-  html,
-  body{
-    width:100%;
-    height:100%;
-  }
-  
-  body {
-    background: black;
-      display: grid;
-      place-content: center;
-      place-items: center;
-      gap: var(--size-5);
-  }
-  
-  h1 {
-    font-family: Cyberpunk;
-    color: white;
-    font-size: 12vw;
-    color: cyan;
-    animation: glitch 2s step-end infinite alternate, glitch-skew 2s step-end infinite alternate;
-  }
-  
-  @keyframes glitch {
-    13% { 
-      clip-path:polygon(90% 55%,20% 97%,85% 42%,20% 62%,6% 55%,76% 74%,68% 67%,49% 32%,47% 41%,2% 16%,95% 73%,68% 14%,35% 81%,31% 57%,29% 24%,57% 63%,52% 91%,45% 82%,6% 81%,82% 88%,30% 61%,70% 18%,15% 36%,16% 67%,74% 84%,21% 81%);
-    }
-    
-    53% { 
-      clip-path: polygon(46% 96%,51% 63%,92% 0%,47% 85%,26% 37%,15% 6%,16% 15%,64% 28%,69% 88%,50% 49%,29% 17%,91% 74%,54% 36%,85% 94%,89% 92%,96% 22%,47% 75%,51% 12%,12% 37%,1% 41%,63% 33%,90% 52%,48% 18%,5% 56%,77% 80%,60% 48%);
-    }
-    
-    37% {
-      clip-path: polygon(73% 96%,32% 94%,26% 33%,40% 16%,69% 28%,72% 42%,32% 33%,22% 3%,55% 64%,79% 57%,57% 39%,0% 44%,27% 36%,17% 32%,47% 35%,53% 10%,65% 96%,72% 51%,15% 56%,61% 21%,66% 29%,33% 7%,8% 86%,47% 89%,43% 56%,98% 7%);
-    }
-    
-    62% {
-      clip-path: polygon(44% 98%,91% 91%,90% 18%,72% 50%,63% 5%,36% 64%,23% 8%,43% 19%,88% 86%,7% 22%,37% 99%,71% 21%,76% 50%,100% 73%,5% 41%,65% 26%,19% 55%,36% 5%,11% 83%,28% 48%,36% 36%,9% 64%,64% 22%,66% 38%,80% 68%,69% 76%);
-    }
-    
-    78%{
-      clip-path: polygon(24% 46%,40% 79%,28% 54%,98% 82%,87% 67%,36% 71%,37% 29%,89% 26%,89% 21%,8% 8%,61% 35%,4% 23%,90% 77%,46% 98%,82% 6%,76% 94%,17% 52%,59% 22%,76% 92%,39% 44%,74% 97%,16% 6%,89% 84%,80% 52%,85% 55%,7% 91%);
-    }
-      14%,39%, 56%, 64%, 79%{ 
-      clip-path: none;
-    }
-  }
-  
-  @keyframes glitch-skew {
-    13% { 
-      transform: skew(10deg, 10deg) scale(.6);
-    }
-    
-    53% { 
-      transform: skew(20deg, 50deg) scale(.6);
-    }
-    
-    37% {
-      transform: skew(-83deg, 17deg) scale(0.6);
-    }
-    
-    78%{
-      transform: skew(289deg, 18deg) scale(0.6);
-    }
-      14%,39%, 56%, 64%, 79%{ 
-      transform: none;
-    }
-  }
-  body {
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&display=swap");
+
+/* Variables */
+:root {
+	/* Colors */
+	--background-color: #008081;
+	--text-color: #eefae9;
+	--accent-color: #d9d9d9;
+	/* Typography */
+	--font-title: "Bungee", cursive;
+	--font-timer: "Press Start 2P", cursive;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-image: url(https://drive.google.com/uc?export=view&id=1ib_CDUp4C-MvnRttV4UjG78GPFoiV_-I);
+	mix-blend-mode: hard-light;
+	margin: 0;
+	/* Position */
+	position: relative;
+	z-index: 0;
     overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-  }
+  /* overflow-x: hidden; Hide horizontal scrollbar */
+}
+
+body::before {
+	content: "";
+	display: block;
+	opacity: 0.7;
+	width: 100%;
+	height: 100%;
+	background-color: var(--background-color);
+	/* Position */
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+header {
+	width: 100%;
+	mix-blend-mode: normal;
+	position: relative;
+	z-index: 2;
+	/*flex*/
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	color: var(--text-color);
+	font-family: var(--font-title);
+	font-size: 24px;
+	/*flex*/
+	display: flex;
+	justify-content: center;
+}
+
+.torch {
+	width: 290px;
+	aspect-ratio: 1;
+	background-image: url(https://drive.google.com/uc?export=view&id=1Ryvf-1QqjvZn88aG2KyCC3RiOxpVhQIv);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.phone {
+	margin: 40px 30px 110px 0px;
+	/*flex*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.phoneImg {
+	width: 70px;
+	aspect-ratio: 1;
+	margin-right: 10px;
+	background-image: url(https://drive.google.com/uc?export=view&id=1ZIWhDa2R_7w93u21dHqn5KwerljcdPj9);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+main {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	left: 24px;
+	bottom: 0px;
+	z-index: 2;
+}
+
+h1,
+label {
+	font-family: var(--font-title);
+	text-transform: capitalize;
+	color: var(--text-color);
+}
+
+h1 {
+	font-size: 46px;
+	margin: 4px;
+}
+
+label {
+	font-size: 20px;
+	display: block;
+}
+
+.progressBar {
+	width: 720px;
+	height: 48px;
+	margin: 0px auto 16px;
+	background-color: #d9d9d9;
+	box-shadow: inset -4px -4px 4px #757070;
+	/*flex*/
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.progress {
+	width: 24px;
+	height: 40px;
+	margin: 0px 4px;
+	background-color: #08226b;
+}
+
+form input {
+	width: 440px;
+	height: 56px;
+	box-shadow: inset -4px -4px 4px #757070;
+	margin: 0px 24px 8px;
+	font-family: var(--font-title);
+	padding: 4px 8px;
+}
+
+span {
+	font-family: var(--font-timer);
+	color: var(--text-color);
+	font-size: 24px;
+}
+
+form div {
+	display: inline-flex;
+	height: 56px;
+	width: 240px;
+	background-color: var(--accent-color);
+	border: 1 px solid #081403;
+	justify-content: center;
+	align-items: center;
+	box-shadow: inset -4px -4px 4px #757070;
+}
+
+button {
+	width: 90%;
+	height: 75%;
+	font-size: 20px;
+	font-family: var(--font-title);
+	border: 2px dashed #081403;
+	background-color: var(--accent-color);
+	color: #081403;
+	cursor: pointer;
+	/*flex*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+span {
+	/*flex*/
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.timer {
+	text-align: right;
+	margin-top: 10px;
+	/*flex*/
+	display: flex;
+}
+
+.timIt {
+	margin-right: 24px;
+	text-align: center;
+}
+
+.timer h2 {
+	font-size: 36px;
+	margin-bottom: 0px;
+}
+
+.timer p {
+	font-size: 20px;
+	margin-top: 0px;
+}
+
+.flames {
+	height: 136px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-image: url(https://drive.google.com/uc?export=view&id=1dxo3BxxVX-n3vpPFFl5EvsBMvecRojg3);
+	mix-blend-mode: normal;
+	position: relative;
+	z-index: 2;
+}
